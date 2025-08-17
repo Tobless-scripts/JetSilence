@@ -1,0 +1,34 @@
+{
+  "name": "jetsilence",
+  "displayName": "JetSilence",
+  "description": "Immerse yourself in JetSilence, a ultra-smooth dark theme designed for focus and style. With its deep black background and carefully balanced accents, this theme reduces eye strain while maintaining a modern, minimalist aesthetic. Perfect for developers, designers, and night owls who crave a distraction-free experience.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/build-theme.js",
+    "run": "nodemon src/build-theme.ts"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "JetSilence",
+        "uiTheme": "vs-dark",
+        "path": "./themes/JetSilence-color-theme.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "chokidar": "^4.0.3"
+  }
+}
