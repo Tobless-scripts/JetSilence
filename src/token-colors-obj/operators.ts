@@ -38,6 +38,24 @@ int sum = a + b;
 boolean isEqual = x == y;
 boolean isGreater = a > b && c < d;
 → Color affects: +, ==, >, &&, <, = (operators)
+
+C:
+int sum = a + b;
+int isEqual = x == y;
+int isGreater = a > b && c < d;
+→ Color affects: +, ==, >, &&, <, = (operators)
+
+C++:
+int sum = a + b;
+bool isEqual = x == y;
+bool isGreater = a > b && c < d;
+→ Color affects: +, ==, >, &&, <, = (operators)
+
+C#:
+int sum = a + b;
+bool isEqual = x == y;
+bool isGreater = a > b && c < d;
+→ Color affects: +, ==, >, &&, <, = (operators)
 */
 
 export const operators: jsType.TokenColorInterface[] = [

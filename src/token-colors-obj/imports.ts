@@ -23,9 +23,9 @@ use App\Models\User;
 
 Go:
 import (
-    "fmt"
-    "net/http"
-    "encoding/json"
+        "fmt"
+        "net/http"
+        "encoding/json"
 )
 → Color affects: import (import keyword)
 
@@ -40,19 +40,38 @@ import java.util.*;
 import java.io.*;
 import com.example.models.User;
 → Color affects: import (import keyword)
+
+C:
+#include <stdio.h>
+#include <stdlib.h>
+#include "myheader.h"
+→ Color affects: #include (preprocessor directive)
+
+C++:
+#include <iostream>
+#include <vector>
+#include "myclass.h"
+using namespace std;
+→ Color affects: #include, using (preprocessor directive and namespace keyword)
+
+C#:
+using System;
+using System.Collections.Generic;
+using MyNamespace.Models;
+→ Color affects: using (using keyword)
 */
 
 export const imports: jsType.TokenColorInterface[] = [
-        // IMPORTS/MODULES
-        {
-                scope: [
-                        "keyword.control.import",
-                        "keyword.control.export",
-                        "keyword.control.from"
-                ],
-                settings: {
-                        foreground: "#B67C60",
-                        fontStyle: "medium"
+                // IMPORTS/MODULES
+                {
+                                scope: [
+                                                "keyword.control.import",
+                                                "keyword.control.export",
+                                                "keyword.control.from"
+                                ],
+                                settings: {
+                                                foreground: "#B67C60",
+                                                fontStyle: "medium"
+                                }
                 }
-        }
 ];

@@ -97,6 +97,86 @@ public enum UserStatus {
     ACTIVE, INACTIVE, PENDING
 }
 → Color affects: User, UserRepository, BaseEntity, UserStatus, String, Integer, Long (class names, interface names, enum names, wrapper types)
+
+C:
+struct User {
+    char* name;
+    int age;
+};
+
+typedef struct {
+    int id;
+    char* title;
+} Task;
+
+typedef enum {
+    STATUS_ACTIVE,
+    STATUS_INACTIVE
+} UserStatus;
+
+union Data {
+    int integer;
+    float decimal;
+};
+→ Color affects: User, Task, UserStatus, Data, int, char, float (struct names, typedef names, enum names, built-in types)
+
+C#:
+public class User {
+    public string Name { get; set; }
+    public int Age { get; set; }
+}
+
+public interface IUserRepository {
+    User FindById(int id);
+    void Save(User user);
+}
+
+public abstract class BaseEntity {
+    protected int Id { get; set; }
+}
+
+public enum UserStatus {
+    Active,
+    Inactive,
+    Pending
+}
+
+public struct Point {
+    public int X;
+    public int Y;
+}
+→ Color affects: User, IUserRepository, BaseEntity, UserStatus, Point, string, int (class names, interface names, enum names, struct names, built-in types)
+
+C++:
+class User {
+private:
+    std::string name;
+    int age;
+public:
+    User(const std::string& name, int age);
+};
+
+template<typename T>
+class Repository {
+public:
+    virtual T findById(int id) = 0;
+    virtual void save(const T& entity) = 0;
+};
+
+struct Point {
+    double x, y;
+    Point(double x, double y) : x(x), y(y) {}
+};
+
+enum class UserStatus {
+    Active,
+    Inactive,
+    Pending
+};
+
+using UserPtr = std::shared_ptr<User>;
+typedef std::vector<User> UserList;
+→ Color affects: User, Repository, Point, UserStatus, UserPtr, UserList, std::string, std::shared_ptr, std::vector, int, double (class names, template names, struct names, enum class names, type aliases, STL types)
 */
 
 export const classesTypes: jsType.TokenColorInterface[] = [

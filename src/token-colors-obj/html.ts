@@ -31,6 +31,27 @@ XML:
     <email>john@example.com</email>
 </user>
 → Color affects: user, name, email (tag names), <, >, </, /> (tag punctuation)
+
+C:
+#include <stdio.h>
+int main() {
+    printf("<html><body>Hello</body></html>");
+    return 0;
+}
+→ Color affects: html, body (tag names within strings), <, >, </, /> (tag punctuation within strings)
+
+C#:
+string html = "<div><span>Text</span></div>";
+var doc = new XmlDocument();
+doc.LoadXml("<root><item>Value</item></root>");
+→ Color affects: div, span, root, item (tag names within strings), <, >, </, /> (tag punctuation within strings)
+
+C++:
+#include <iostream>
+#include <string>
+std::string markup = "<header><title>Page</title></header>";
+std::cout << "<p>Output</p>" << std::endl;
+→ Color affects: header, title, p (tag names within strings), <, >, </, /> (tag punctuation within strings)
 */
 
 export const html: jsType.TokenColorInterface[] = [
