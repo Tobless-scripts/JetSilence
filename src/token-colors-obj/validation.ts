@@ -12,28 +12,28 @@ function broken( { // Invalid syntax
 @deprecated // Deprecated decorator
 function oldMethod() {}
 → Color affects: 
-  - Invalid syntax gets red underline
-  - @deprecated and oldMethod() get strikethrough styling
+        - Invalid syntax gets red underline
+        - @deprecated and oldMethod() get strikethrough styling
 
 Python (Invalid/Error):
 # Syntax errors
 def broken_function(
-    pass  # Invalid indentation
+                pass  # Invalid indentation
 
 # Deprecated
 import warnings
 @warnings.deprecated
 def old_function():
-    pass
+                pass
 → Color affects: 
-  - Syntax errors get red underline
-  - @warnings.deprecated and old_function get strikethrough
+        - Syntax errors get red underline
+        - @warnings.deprecated and old_function get strikethrough
 
 PHP (Invalid/Error):
 // Syntax errors
 function broken() {
-    echo "missing semicolon"
-    return // Invalid return
+                echo "missing semicolon"
+                return // Invalid return
 
 // Deprecated
 /**
@@ -42,12 +42,12 @@ function broken() {
 function oldMethod() { }
 → Color affects:
 - Syntax errors get red underline
-        - @deprecated and oldMethod get strikethrough
+                                - @deprecated and oldMethod get strikethrough
 
 Java(Invalid / Error):
 // Compilation errors
 public void broken() {
-        return "void method cannot return value"; // Error
+                                return "void method cannot return value"; // Error
 }
 
 // Deprecated
@@ -55,8 +55,52 @@ public void broken() {
 public void oldMethod() { }
 → Color affects:
 - Compilation errors get red underline
-        - @Deprecated and oldMethod get strikethrough styling
-                
+                                - @Deprecated and oldMethod get strikethrough styling
+
+C (Invalid/Error):
+// Syntax errors
+int main() {
+                printf("missing header") // Missing semicolon and #include
+                return // Missing return value
+}
+
+// Deprecated (compiler attributes)
+__attribute__((deprecated))
+void oldFunction() { }
+→ Color affects:
+- Syntax errors get red underline
+- __attribute__((deprecated)) and oldFunction get strikethrough
+
+C++ (Invalid/Error):
+// Compilation errors
+class Broken {
+                void method() {
+                                return 42; // void method returning value
+                }
+};
+
+// Deprecated
+[[deprecated("Use newMethod instead")]]
+void oldMethod() { }
+→ Color affects:
+- Compilation errors get red underline
+- [[deprecated]] and oldMethod get strikethrough styling
+
+C# (Invalid/Error):
+// Compilation errors
+public void Broken()
+{
+                return "void method cannot return"; // Error
+                int x = "string"; // Type mismatch
+}
+
+// Deprecated
+[Obsolete("Use NewMethod instead")]
+public void OldMethod() { }
+→ Color affects:
+- Compilation errors get red underline
+- [Obsolete] and OldMethod get strikethrough styling
+                                                                
  */
 export const validation: jsType.TokenColorInterface[] = [
         // INVALID/ERROR

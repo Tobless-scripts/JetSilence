@@ -73,7 +73,48 @@ public String greet(String name) {
         return "Hello " + name + "!";
 }
 → Color affects: All comment text and Javadoc with italic styling
-*/
+
+C:
+// Single line comment
+/* Multi-line comment */
+/**
+ * Function documentation
+ * @param name User name pointer
+ * @return formatted greeting string
+
+char* greet(const char* name) {
+        char* result = malloc(50);
+        sprintf(result, "Hello %s!", name);
+        return result;
+}
+→ Color affects: All comment text with italic styling
+
+C++:
+// Single line comment
+/* Multi-line comment */
+/**
+ * Doxygen comment
+ * @param name User name
+ * @return greeting string
+ 
+std::string greet(const std::string& name) {
+        return "Hello " + name + "!";
+}
+→ Color affects: All comment text and Doxygen with italic styling
+
+C#:
+// Single line comment
+/* Multi-line comment */
+/// <summary>
+/// XML documentation comment
+/// </summary>
+/// <param name="name">User name</param>
+/// <returns>Greeting message</returns>
+// public string Greet(string name) {
+//         return $"Hello {name}!";
+// }
+// → Color affects: All comment text and XML documentation with italic styling
+
 
 // COMMENTS
 export const comments: jsType.TokenColorInterface[] = [

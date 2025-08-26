@@ -89,6 +89,51 @@ public class Calculator {
 double result = calculateTotal(100);
 double sum = calculator.add(5, 3);
 → Color affects: calculateTotal, add (method names when declared and called)
+
+C:
+double calculateTotal(double price) {
+    return price * 1.2;
+}
+
+int add(int a, int b) {
+    return a + b;
+}
+
+double result = calculateTotal(100.0);
+int sum = add(5, 3);
+→ Color affects: calculateTotal, add (function names when declared and called)
+
+C#:
+public double CalculateTotal(double price) {
+    return price * 1.2;
+}
+
+public class Calculator {
+    public double Add(double a, double b) {
+        return a + b;
+    }
+}
+
+double result = CalculateTotal(100);
+double sum = calculator.Add(5, 3);
+→ Color affects: CalculateTotal, Add (method names when declared and called)
+
+C++:
+double calculateTotal(double price) {
+    return price * 1.2;
+}
+
+class Calculator {
+public:
+    double add(double a, double b) {
+        return a + b;
+    }
+};
+
+double result = calculateTotal(100.0);
+Calculator calculator;
+double sum = calculator.add(5.0, 3.0);
+→ Color affects: calculateTotal, add (function/method names when declared and called)
 */
 
 // FUNCTIONS/METHODS

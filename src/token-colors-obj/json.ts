@@ -31,7 +31,26 @@ PHP (JSON):
 $data = array("name" => "John", "age" => 30);
 $jsonString = json_encode($data);
 → Color affects: "name", "age" (array keys that become JSON keys)
+C (JSON with cJSON library):
+cJSON *json = cJSON_CreateObject();
+cJSON_AddStringToObject(json, "name", "John");
+cJSON_AddNumberToObject(json, "age", 30);
+→ Color affects: "name", "age" (JSON key strings)
 
+C++ (JSON with nlohmann/json):
+json j;
+j["name"] = "John Doe";
+j["age"] = 30;
+j["isActive"] = true;
+→ Color affects: "name", "age", "isActive" (JSON property keys)
+
+C# (JSON with System.Text.Json):
+var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
+string json = JsonSerializer.Serialize(user, options);
+// Or with Newtonsoft.Json:
+[JsonProperty("user_name")]
+public string Name { get; set; }
+→ Color affects: "user_name" (JSON property names in attributes)
 Go (JSON):
 type User struct {
     Name string `json:"name"`
