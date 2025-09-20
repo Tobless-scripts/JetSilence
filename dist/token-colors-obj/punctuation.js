@@ -38,6 +38,24 @@ public List<User> getData() {
     return api.get("/users");
 }
 → Color affects: (), [], {}, ;, <> (brackets, braces, semicolons, angle brackets)
+
+C:
+int getData(User* users[], int size) {
+    return api_get("/users", users, size);
+}
+→ Color affects: (), [], {}, ;, * (brackets, braces, semicolons, pointers)
+
+C++:
+std::vector<User> getData() {
+    return api.get("/users");
+}
+→ Color affects: (), [], {}, ;, <>, :: (brackets, braces, semicolons, angle brackets, scope resolution)
+
+C#:
+public List<User> GetData() {
+    return api.Get("/users");
+}
+→ Color affects: (), [], {}, ;, <> (brackets, braces, semicolons, angle brackets)
 */
 exports.punctuation = [
     // PUNCTUATION (brackets, semicolons, etc.)

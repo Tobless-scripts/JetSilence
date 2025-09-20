@@ -91,7 +91,6 @@ const theme = {
 };
 const sourceFile = __filename;
 const outputPath = path.join(__dirname, "..", "themes", "JetSilence-color-theme.json");
-console.log(`Writing theme to ${outputPath}`);
 fs.writeFileSync(outputPath, JSON.stringify(theme, null, 2));
 console.log(`Theme written successfully to ${outputPath}`);
 // Your theme configuration
@@ -107,11 +106,10 @@ const generateTheme = () => {
     // Write theme file
     fs.writeFileSync(outputPath, JSON.stringify(theme, null, 2));
     const timestamp = new Date().toLocaleTimeString();
-    console.log(`🎨 [${timestamp}] Theme updated successfully!`);
-    // Optional: Try to reload VS Code theme automatically
+    console.log(`[${timestamp}] Theme updated successfully!`);
     // This requires the theme to already be selected in VS Code
     setTimeout(() => {
-        console.log("💡 Tip: If theme didn't auto-update, press Ctrl+Shift+P → 'Developer: Reload Window'");
+        console.log("Tip: If theme didn't auto-update, press Ctrl+Shift+P → 'Developer: Reload Window'");
     }, 1000);
 };
 // Initial generation
@@ -121,23 +119,23 @@ const watcher = chokidar.watch(sourceFile, {
     persistent: true,
     ignoreInitial: true
 });
-console.log(`👀 Watching ${path.basename(sourceFile)} for changes...`);
-console.log(`📝 Output: ${outputPath}`);
-console.log(`🚀 Make changes to this file to see live theme updates!\n`);
+console.log(`Watching ${path.basename(sourceFile)} for changes...`);
+console.log(`Output: ${outputPath}`);
+console.log(`Make changes to this file to see live theme updates!\n`);
 watcher.on('change', (filePath) => {
-    console.log(`📝 File changed: ${path.basename(filePath)}`);
+    console.log(`File changed: ${path.basename(filePath)}`);
     // Clear require cache to reload the module
     delete require.cache[require.resolve(__filename)];
     try {
         generateTheme();
     }
     catch (error) {
-        console.error('❌ Error generating theme:', error.message);
+        console.error('Error generating theme:', error.message);
     }
 });
 // Handle process termination
 process.on('SIGINT', () => {
-    console.log('\n👋 Stopping theme watcher...');
+    console.log('\n Stopping theme watcher...');
     watcher.close();
     process.exit(0);
 });

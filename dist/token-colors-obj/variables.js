@@ -39,6 +39,24 @@ String userName = "John";
 int age = 25;
 boolean isActive = true;
 → Color affects: userName, age, isActive (variable names)
+
+C:
+char userName[] = "John";
+int age = 25;
+int isActive = 1;
+→ Color affects: userName, age, isActive (variable names)
+
+C++:
+std::string userName = "John";
+int age = 25;
+bool isActive = true;
+→ Color affects: userName, age, isActive (variable names)
+
+C#:
+string userName = "John";
+int age = 25;
+bool isActive = true;
+→ Color affects: userName, age, isActive (variable names)
 */
 exports.variables = [
     // VARIABLES

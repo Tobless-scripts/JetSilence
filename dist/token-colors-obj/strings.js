@@ -57,6 +57,30 @@ String multiline = """
     multiline string
     """;
 → Color affects: "Hello World", "Welcome %s!", text block (all string content)
+
+C:
+char message[] = "Hello World";
+char template[100];
+sprintf(template, "Welcome %s!", name);
+→ Color affects: "Hello World", "Welcome %s!" (all string literals)
+
+C#:
+string message = "Hello World";
+string template = $"Welcome {name}!";
+string multiline = @"
+    This is a
+    multiline string
+";
+→ Color affects: "Hello World", $"Welcome {name}!", @"..." verbatim string (all string content)
+
+C++:
+std::string message = "Hello World";
+std::string template = "Welcome " + name + "!";
+std::string multiline = R"(
+    This is a
+    multiline string
+)";
+→ Color affects: "Hello World", "Welcome ", raw string literal R"(...)" (all string content)
 */
 //STRINGS
 exports.strings = [

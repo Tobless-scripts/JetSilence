@@ -65,6 +65,46 @@ public class User {
     }
 }
 → Color affects: name, age (field names), name, age (parameter names), this.name, this.age (field access)
+
+C:
+struct User {
+    char name[50];
+    int age;
+};
+
+void initUser(struct User* user, const char* name, int age) {
+    strcpy(user->name, name);
+    user->age = age;
+}
+→ Color affects: name, age (struct member names), user, name, age (parameter names), user->name, user->age (member access)
+
+C++:
+class User {
+public:
+    std::string name;
+private:
+    int age;
+    
+public:
+    User(const std::string& name, int age) : name(name), age(age) {}
+    
+    void setAge(int age) {
+        this->age = age;
+    }
+};
+→ Color affects: name, age (member names), name, age (parameter names), this->age, this.name (member access)
+
+C#:
+public class User {
+    public string Name { get; set; }
+    private int age;
+    
+    public User(string name, int age) {
+        this.Name = name;
+        this.age = age;
+    }
+}
+→ Color affects: Name, age (property/field names), name, age (parameter names), this.Name, this.age (property/field access)
 */
 exports.properties = [
     // PROPERTIES & ATTRIBUTES

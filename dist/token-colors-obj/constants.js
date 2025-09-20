@@ -39,6 +39,24 @@ public static final int MAX_SIZE = 100;
 public static final double PI = 3.14159;
 public static final String API_URL = "https://api.example.com";
 → Color affects: 100, 3.14159, "https://api.example.com" (constant values), true/false/null
+
+C:
+#define MAX_SIZE 100
+const int PI = 3.14159;
+const char* API_URL = "https://api.example.com";
+→ Color affects: 100, 3.14159, "https://api.example.com" (constant values), true/false/NULL
+
+C++:
+const int MAX_SIZE = 100;
+const double PI = 3.14159;
+const std::string API_URL = "https://api.example.com";
+→ Color affects: 100, 3.14159, "https://api.example.com" (constant values), true/false/nullptr
+
+C#:
+const int MAX_SIZE = 100;
+const double PI = 3.14159;
+const string API_URL = "https://api.example.com";
+→ Color affects: 100, 3.14159, "https://api.example.com" (constant values), true/false/null
 */
 exports.constants = [
     // CONSTANTS

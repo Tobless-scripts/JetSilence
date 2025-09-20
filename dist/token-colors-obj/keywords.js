@@ -83,6 +83,49 @@ if (condition) {
     }
 }
 → Color affects: if, for, int, while, public, void, class (control flow and declaration keywords)
+
+C:
+if (condition) {
+    for (int i = 0; i < 10; i++) {
+        while (isRunning) {
+            void processData() {
+                struct User {
+                    char name[50];
+                };
+            }
+        }
+    }
+}
+→ Color affects: if, for, int, while, void, struct (control flow and declaration keywords)
+
+C++:
+if (condition) {
+    for (int i = 0; i < 10; i++) {
+        while (isRunning) {
+            void processData() {
+                class User {
+                    public:
+                        User() {}
+                };
+            }
+        }
+    }
+}
+→ Color affects: if, for, int, while, void, class, public (control flow and declaration keywords)
+
+C#:
+if (condition) {
+    for (int i = 0; i < 10; i++) {
+        while (isRunning) {
+            public void ProcessData() {
+                public class User {
+                    public User() {}
+                }
+            }
+        }
+    }
+}
+→ Color affects: if, for, int, while, public, void, class (control flow and declaration keywords)
 */
 //KEYWORDS (IF, ELSE, FOR, WHILE, FUNCTION, CLASS, ETC...)
 exports.keywords = [
